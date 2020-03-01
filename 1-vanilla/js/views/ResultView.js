@@ -1,3 +1,5 @@
+import CardComponent from '../components/Card.js';
+
 const tag = '[ResultView]'
 
 export default class ResultView {
@@ -7,7 +9,19 @@ export default class ResultView {
   }
 
   setResult(resData) {
-    console.log(resData);
+    // console.log(this.el);
+    const cardComponent = CardComponent(resData);
+    this.el.innerHTML = cardComponent;
+    // console.log(resData);
+
+    // Array.from(resData).forEach(x => {
+    //   console.log(x);
+    // })
+    
+  }
+
+  resetResult() {
+    this.el.innerHTML = "";
   }
 
   emit(event, data) {

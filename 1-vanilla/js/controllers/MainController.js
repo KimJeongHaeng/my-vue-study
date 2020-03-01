@@ -19,16 +19,18 @@ export const init = () =>  {
 const MainController = {
   eventBind() {
     formView.on('@submit', e => this.onSubmit(e.detail.inputData))
-            .on('@reset', e => this.onResetForm())
+            .on('@reset', _ => this.onResetForm())
   },
 
   async onSubmit(inputData) {
     const searchData = await ResultModel.search(inputData);
+    console.log(searchData);
     resultView.setResult(searchData);
   },
 
   onResetForm() {
-    console.log(tag, '.onResetForm()')
+    console.log(tag, '.onResetForm()');
+    resultView.resetResult();
   }
 };
 
